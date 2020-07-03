@@ -67,8 +67,35 @@ namespace WpfCore
         private void StudentList_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var item = (ListView)sender;
-            var student = (Student)item.SelectedItem; 
-            MessageBox.Show($"{student.Name} - {student.Address}");
+            var student = (Student)item.SelectedItem;
+
+            //MessageBox.Show($"Student Name: {student.Name} and his Address is {student.Address}");
+
+
+            if (deleteCheckBox.IsChecked == true)
+            {
+                var studentId = student.Id;
+                using (var db = new AppDbContext())
+                {
+                    var result = MessageBox.Show("Are you want Delete this Record?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        var findStudent = db.Students.Find(studentId);
+                        db.Students.Remove(findStudent);
+                        db.SaveChanges();
+                        StudentList.Items.Clear();
+                        PopulateStudentData();
+                    }
+
+
+
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Student Name: {student.Name} and his Address is: {student.Address}");
+            }
         }
     }
 }

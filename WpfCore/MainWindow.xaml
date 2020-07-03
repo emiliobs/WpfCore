@@ -43,6 +43,7 @@
                         </LinearGradientBrush>
                     </Button.Background> Save Data!
                 </Button>
+                <CheckBox Grid.Row="2" Name="deleteCheckBox" Margin="5" Foreground="White" >Delete</CheckBox>
             </Grid>
         </StackPanel>
         <ListView PreviewMouseLeftButtonUp="StudentList_PreviewMouseLeftButtonUp" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch"  Margin="10,10,10,10" VerticalAlignment="Stretch"  Name="StudentList">
