@@ -27,23 +27,36 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                   
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Foreground="White">Name :</Label>
                 <TextBox Grid.Row="0" Grid.Column="1"  x:Name="strName" Margin="5,5,5,5"></TextBox>
                 <Label Grid.Row="1" Grid.Column="0" Foreground="White">Addres :</Label>
                 <TextBox Grid.Row="1" Name="strAddress" Grid.Column="1" Margin="5,5,5,5" Height="70"></TextBox>
-                <Button Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="2" Click="Button_Click" Foreground="White" Margin="5">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black"/>
-                            <GradientStop Color="#FF8B3333" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background> Save Data!
-                </Button>
-                <CheckBox Grid.Row="2" Name="deleteCheckBox" Margin="5" Foreground="White" >Delete</CheckBox>
+                <StackPanel Orientation="Horizontal" Grid.Row="2"  Grid.Column="1"  Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                    <Button  Width="150" Click="Save_Click" IsEnabled="{Binding IsEnabled1 }" Name="btnSave" Foreground="#FFDA2727" Margin="5" FontWeight="Bold">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FF2DD935" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background> Save Data!
+                    </Button>
+                    <Button  Width="150" Name="btnEdit" IsEnabled="{Binding IsEnabled2 }" Click="EditButton_Click" Foreground="#FFE02626" Margin="5" FontWeight="Bold">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FF338B4A" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background> Update Data!
+                    </Button>
+                </StackPanel>
+
+                <CheckBox Grid.Row="2"  Click="deleteCheckBox_Click"  Name="deleteCheckBox" Margin="5" Foreground="White" >Delete</CheckBox>
+                <CheckBox Grid.Row="2" Click="editCheckBox_Click"  Name="editCheckBox" Margin="5,25,0,0" Foreground="White" >Edit</CheckBox>
             </Grid>
         </StackPanel>
         <ListView PreviewMouseLeftButtonUp="StudentList_PreviewMouseLeftButtonUp" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch"  Margin="10,10,10,10" VerticalAlignment="Stretch"  Name="StudentList">
