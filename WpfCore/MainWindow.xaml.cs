@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using WpfCore.Data;
 using WpfCore.Models;
 
@@ -61,6 +62,13 @@ namespace WpfCore
 
                 }
             }
+        }
+
+        private void StudentList_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var item = (ListView)sender;
+            var student = (Student)item.SelectedItem; 
+            MessageBox.Show($"{student.Name} - {student.Address}");
         }
     }
 }

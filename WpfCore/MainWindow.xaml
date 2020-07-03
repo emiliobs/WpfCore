@@ -45,7 +45,7 @@
                 </Button>
             </Grid>
         </StackPanel>
-        <ListView Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch"  Margin="10,10,10,10" VerticalAlignment="Stretch"  Name="StudentList">
+        <ListView PreviewMouseLeftButtonUp="StudentList_PreviewMouseLeftButtonUp" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch"  Margin="10,10,10,10" VerticalAlignment="Stretch"  Name="StudentList">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="100"></GridViewColumn>
